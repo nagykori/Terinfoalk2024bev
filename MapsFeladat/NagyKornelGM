@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nagy Kornél Térképe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>#map {height: 670px; width: 100%}</style>
+</head>
+<body>
+<h3>Ábrázolva: két lakóhely</h3>
+<div id="map"></div>
+
+<script>
+function initMap() {
+  // A térkép középpontjának koordinátái
+  const center = { lat: 46.909474,  lng: 19.678873 };
+
+  // Térkép objektum létrehozása ID-vel
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: center,
+    mapId: "DEMO_MAP_ID",
+  });
+  
+  // Jelölők
+  const pinLakhely1 = new google.maps.marker.PinElement({
+	scale: 0.5,
+	borderColor: "red",
+	background: "blue",
+	glyphColor: "white",
+  });
+  const Lakhely1 = new google.maps.marker.AdvancedMarkerElement({
+    map: map,
+    position: { lat: 46.92966725914313,  lng: 19.7028846282737222 },
+    title: "Lakhely1",
+	content: pinLakhely1.element,
+  });
+  const pinBainbridgeIsland = new google.maps.marker.PinElement({
+	scale: 0.5,
+	borderColor: "red",
+	background: "blue",
+	glyphColor: "green",
+  });
+  const Lakhely2 = new google.maps.marker.AdvancedMarkerElement({
+    map: map,
+    position: { lat: 46.893456, lng: 19.659320 },
+    title: "Lakhely2",
+	content: pinBainbridgeIsland.element,
+  });
+ const pinLake = new google.maps.marker.PinElement({
+	scale: 0.65,
+	borderColor: "red",
+	background: "white",
+	glyphColor: "green",
+	glyph: "L",
+  });
+  const Lake = new google.maps.marker.AdvancedMarkerElement({
+    map: map,
+    position: { lat: 40.11111, lng: -119.5555555 },
+    title: "Pyramid Lake",
+	content: pinLake.element,
+  });
+  
+}
+</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk2v8WtXB57rTW6EH9xFkYxk88u02Xrx4&callback=initMap&libraries=marker"></script>
+</body>
+</html>
